@@ -1,0 +1,218 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+.gallery-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.gallery {
+  width: 95vw;
+  aspect-ratio: 16/9;
+  max-width: 96rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.5rem 1fr 0.5rem 1fr 0.5rem 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: 1fr 0.5rem 1fr 0.5rem 1fr 0.5rem 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.479);
+}
+.gallery > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+.gallery > *:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+}
+.gallery > *:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(6) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(7) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+}
+.gallery > *:nth-child(8) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 7;
+}
+.gallery > *:nth-child(9) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(10) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(11) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+}
+.gallery > *:nth-child(12) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 7;
+}
+.gallery > *:nth-child(13) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(14) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(15) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 5;
+}
+.gallery > *:nth-child(16) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 7;
+}
+.img-wrapper {
+  background-color: #000;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
+  -webkit-transition: opacity 0.25s linear, -webkit-transform 0.5s linear;
+  transition: opacity 0.25s linear, -webkit-transform 0.5s linear;
+  -o-transition: opacity 0.25s linear, transform 0.5s linear;
+  transition: opacity 0.25s linear, transform 0.5s linear;
+  transition: opacity 0.25s linear, transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+.low-opacity .img {
+  opacity: 0.1;
+  cursor: auto;
+}
+.img:hover:not(.low-opacity .img) {
+  opacity: 0.8;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.shadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #000;
+  background-image: -o-radial-gradient(#000, #353535);
+  background-image: radial-gradient(#000, #353535);
+  -webkit-filter: blur(4rem);
+  filter: blur(4rem);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+.change + .shadow {
+  opacity: 1;
+}
+.big-img {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border-radius: 1rem;
+  -webkit-transform: scale(1) rotate(0);
+  -ms-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+  -webkit-animation: imageAnim 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: imageAnim 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@-webkit-keyframes imageAnim {
+  from {
+    -webkit-transform: scale(0) rotate(360deg);
+    transform: scale(0) rotate(360deg);
+  }
+  to {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes imageAnim {
+  from {
+    -webkit-transform: scale(0) rotate(360deg);
+    transform: scale(0) rotate(360deg);
+  }
+  to {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media ((orientation: landscape) and (min-width: 700px)) {
+  .gallery {
+    width: 85vw;
+  }
+}
+@media ((orientation: landscape) and (min-width: 800px)) {
+  .gallery {
+    width: 75vw;
+  }
+}
